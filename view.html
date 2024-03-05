@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Supir</title>
+    <style>
+        /* Styling untuk tampilan */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D2D180;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f2f2f2;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Supir</h1>
+        <table id="supirTable">
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Tanggal Lahir</th>
+                <th>Alamat</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const supirTable = document.getElementById('supirTable');
+
+            // Data Supir Dummy
+            const dataSupir = [
+                { id: generateId("Bejo", "l", "01-01-1990"), nama: 'Bejo', tgl_lahir: '01-01-1990', alamat: 'Alamat 1' },
+                { id: generateId("Bejo bintang 5", "p", "02-02-2030"), nama: 'Bejo bintang 5', tgl_lahir: '02-02-2030', alamat: 'Alamat 2' }
+            ];
+            function renderSupir() {
+                supirTable.innerHTML = `
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Alamat</th>
+                    </tr>
+                `;
+                dataSupir.forEach(supir => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${supir.id}</td>
+                        <td>${supir.nama}</td>
+                        <td>${supir.tgl_lahir}</td>
+                        <td>${supir.alamat}</td>
+                    `;
+                    supirTable.appendChild(tr);
+                });
+            }
+
+            // Panggil fungsi renderSupir untuk menampilkan data supir saat halaman dimuat
+            renderSupir();
+
+            // Fungsi untuk menghasilkan ID dari nama, jenis kelamin, dan tanggal lahir
+            function generateId(nama, jenis_kelamin, tgl_lahir) {
+                let id = (nama.charCodeAt(0) > nama.charCodeAt(nama.length - 1)) ? (nama.charCodeAt(0) - nama.charCodeAt(nama.length - 1)) : (nama.charCodeAt(nama.length - 1) - nama.charCodeAt(0));
+                id = id * 10 + (jenis_kelamin === 'l' ? 1 : 0);
+                
+                const tgl = tgl_lahir.split('-');
+                const tanggal = parseInt(tgl[0]) + parseInt(tgl[1]) + parseInt(tgl[2]);
+
+                id = id * 100 + tanggal % 9;
+                return id;
+            }
+        });
+    </script>
+</body>
+</html>

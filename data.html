@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Supir</title>
+    <link rel="stylesheet" href="data.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Supir</h1>
+        <form id="supirForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required><br><br>
+            <label for="tgl_lahir">Tanggal Lahir (dd-mm-yy):</label>
+            <input type="text" id="tgl_lahir" name="tgl_lahir" required><br><br>
+            <label for="jenis_kelamin">Jenis Kelamin (l/p):</label>
+            <input type="text" id="jenis_kelamin" name="jenis_kelamin" required><br><br>
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" name="alamat" required><br><br>
+            <button type="submit" class="btn">Tambah</button>
+        </form>
+        <table id="supirTable">
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Tanggal Lahir</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+                <th>Aksi</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="data.js"></script>
+</body>
+</html>
