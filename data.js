@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let nextId = 1;
 
     const dataSupir = [
-        { id: generateId("Bejo", "l", "01-01-1990"), nama: 'Bejo', tgl_lahir: '01-01-1990', jenis_kelamin: 'l', alamat: 'Alamat 1' },
-        { id: generateId("Bejo bintang 5", "p", "02-02-2030"), nama: 'Bejo bintang 5', tgl_lahir: '02-02-2030', jenis_kelamin: 'p', alamat: 'Alamat 2' }
+        { id: generateId("Ferdi Anak Sehat", "l", "24-05-2004"), nama: 'Ferdi Anak Sehat', tgl_lahir: '24-05-2004', jenis_kelamin: 'l', alamat: 'sidoarjo' },
+        { id: generateId("Bejo bintang 5", "p", "02-02-2030"), nama: 'Bejo bintang 5', tgl_lahir: '02-02-2030', jenis_kelamin: 'p', alamat: 'bojong gede' }
     ];
 
     function renderSupir() {
